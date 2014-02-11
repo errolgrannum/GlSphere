@@ -40,14 +40,14 @@ void keyboard(unsigned char key, int x, int y) {
 
 void display(void){
     glClearColor(0,1,1,1);
-    glClear(GL_COLOR_BUFFER_BIT| GLUT_DEPTH_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT| GL_DEPTH_BUFFER_BIT);
     draw();
     glFlush();
     glutSwapBuffers();
 }
 
 void init(void){
-    glEnable(GLUT_DEPTH_TEST); // open more than one buffer
+    glEnable(GL_DEPTH_TEST); // open more than one buffer
     glMatrixMode(GL_PROJECTION); // matrix for you camera or view
     glLoadIdentity(); 
     gluPerspective(40,1,0.01,100); //initial angle (cone like), last two are near and fire clipping planes. Where you can first see something to the end of your view. Rep z-index
