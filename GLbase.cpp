@@ -7,26 +7,27 @@ void draw(void)
 {
     //find points you want to draw. put them in an array then draw.
     glPushMatrix();
+    glLoadIdentity();
+    glTranslatef(5,2,-20);
     glBegin(GL_QUADS);   // quad takes up to 4 vertexes, connects them and creates a surface. For each quad, is use 2 of the previous vertexes
         glColor3f(1,0,0);
-        glVertex3f(-3, -3, -4);
-        glVertex3f(-3, -3, -4);
-        glVertex3f(3,3,-4);
+        glVertex3f(-3,-3,-4);
+        glVertex3f(-3,-3,-4);
+        glVertex3f(2,3,-5);
         glVertex3f(3,-3,-4);
     glEnd();
-
     glPopMatrix();
 
     glPushMatrix();
+    glLoadIdentity();
+    glTranslatef(2,2,-20);
     glBegin(GL_QUADS);   // quad takes up to 4 vertexes, connects them and creates a surface. For each quad, is use 2 of the previous vertexes
-        glColor3f(0,1,0);
-        glVertex3f(-3, -3, -4);
-        glVertex3f(-3, -3, -4);
-        glVertex3f(3,3,-4);
+        glColor3f(0,0,1);
+        glVertex3f(-3,-3,-4);
+        glVertex3f(-3,-3,-4);
+        glVertex3f(2,3,-5);
         glVertex3f(3,-3,-4);
     glEnd();
-    glTranslatef(2,2,2);
-
     glPopMatrix();
     
 }
@@ -42,8 +43,9 @@ void display(void){
     glClearColor(0,1,1,1);
     glClear(GL_COLOR_BUFFER_BIT| GL_DEPTH_BUFFER_BIT);
     draw();
-    glFlush();
+    //glFlush();
     glutSwapBuffers();
+
 }
 
 void init(void){
@@ -65,9 +67,10 @@ int main(int argc, char **argv)
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH); //change glut_single to glut_double, so you use a double buffer
     glutInitWindowPosition(100,100);
     glutInitWindowSize(600,600);
-    glutCreateWindow("Red window");
+    glutCreateWindow("New window");
 
     glutDisplayFunc(display);
+    init();
     glutKeyboardFunc(keyboard);
     glutMainLoop();
     return 0;
