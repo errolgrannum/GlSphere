@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <OpenGL/gl.h>
 #include <OpenGL/glu.h>
+#include <unistd.h>
 #include <math.h>
 
 #define RESL 0.05
@@ -48,6 +49,25 @@ void draw(void)
             glEnd();
     }
 
+    glPopMatrix();
+    glutSwapBuffers();
+    usleep(5000);
+
+    
+
+    angle += 1;
+    if(angle == 360){
+        angle = 0;
+    }
+        
+
+    pos += 0.001;
+
+    if(pos >= 1.0){
+        pos = 0.0;
+    }
+        
+
 
     
 }
@@ -61,7 +81,7 @@ void keyboard(unsigned char key, int x, int y) {
 
 void display(void){
     draw();
-    glutSwapBuffers();
+
 
 }
 
@@ -90,14 +110,6 @@ int main(int argc, char **argv)
 
 //Things happen in the order you write them in
 //
-
-
-
-
-
-
-
-
 
 
 
